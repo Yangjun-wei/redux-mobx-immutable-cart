@@ -5,7 +5,9 @@ const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 const config = require('./webpack.config');
 const open = require('open');
-
+// console.log('打印:', config.module.loaders)
+// console.log('==================================================================================================================================')
+//  process.exit(0)
 /**
  * Flag indicating whether webpack compiled for the first time.
  * @type {boolean}
@@ -15,11 +17,11 @@ let isInitialCompilation = true;
 const compiler = webpack(config);
 
 new WebpackDevServer(compiler, config.devServer)
-.listen(config.port, 'localhost', (err) => {
+.listen(config.port, '0.0.0.0', (err) => {
   if (err) {
     console.log(err);
   }
-  console.log('Listening at localhost:' + config.port);
+  console.log('Listening at 0.0.0.0:' + config.port);
 });
 
 compiler.plugin('done', () => {

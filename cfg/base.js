@@ -24,8 +24,10 @@ module.exports = {
     historyApiFallback: true,
     hot: true,
     port: defaultSettings.port,
+    host:'0.0.0.0',
     publicPath: defaultSettings.publicPath,
-    noInfo: false
+    noInfo: false,
+    disableHostCheck:true
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
